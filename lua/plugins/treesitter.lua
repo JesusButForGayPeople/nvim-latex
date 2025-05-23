@@ -5,8 +5,9 @@ return {
         require("nvim-treesitter.configs").setup({
             highlight = {
                 enable = true,
-                disable = { "latex" },
+                disable = { "latex", "tex" },  -- ✅ disables both variants
             },
         })
     end,
 }
+
