@@ -36,7 +36,11 @@ return {
     vim.g.vimtex_syntax_custom_envs = {
 	{ name = "UNequation", math = 1 },
     }
-
+	
+    vim.g.vimtex_syntax_custom_cmds = {
+  { name = "UNsection", arg = 1 },
+  { name = "UNsubsection", arg = 1 },
+}
     -- ╭────────────────────────────────────────────────────────────╮
     -- │             VimTeX Highlight & TS Override Setup           │
     -- ╰────────────────────────────────────────────────────────────╯
@@ -44,7 +48,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "tex",
   callback = function()
     -- Force Vim syntax and ensure Tree-sitter highlight is off
-    vim.cmd("syntax enable")
+  
     vim.g.vimtex_envs_math = { 'UNequation' }
     -- Small delay to override Tree-sitter if it auto-attaches
     vim.defer_fn(function()
@@ -56,26 +60,32 @@ vim.api.nvim_create_autocmd("FileType", {
     -- │       VimTeX Syntax Highlight Overrides (Ported Theme)     │
     -- ╰────────────────────────────────────────────────────────────╯
     local set = vim.api.nvim_set_hl
-    set(0, 'texCmd',         { fg = '#F92672' })
-    set(0, 'texBeginEnd',    { fg = '#F92672', bold = true })
-    set(0, 'texMathSymbol',  { fg = '#A6E22E' })
-    set(0, 'texMathZone',    { fg = '#A6E22E' })
-    set(0, 'texDelim',       { fg = '#FD971F' })
-    set(0, 'texComment',     { fg = '#365610' })
-    set(0, 'texStatement',   { fg = '#F92672' })
-    set(0, 'texSection',     { fg = '#AE81FF', bold = true })
-    set(0, 'texInputFile',   { fg = '#66D9EF', italic = true })
-    set(0, 'texSpecialChar', { fg = '#f4bf75' })
-    set(0, 'texRefZone',     { fg = '#66D9EF', italic = true })
-    set(0, 'texError',       { fg = '#f92626', bold = true })
-    set(0, 'texSpecials',    { fg = '#F92672' })
-    set(0, 'texOnlyMath',    { fg = '#A6E22E' })
-    set(0, 'texArg',         { fg = '#66D9EF' })
- end,
+    set(0, 'texComment',           { fg = '#365610' })
+    set(0, 'texCmdMathEnv',        {fg = '#f7f065'})
+    set(0, 'texBeginEnd',          { fg = '#f7f065'})
+    set(0, 'texInputFile',         { fg = '#f7f065', italic = true })
+    set(0, 'texSpecialChar',       { fg = '#f7f065' })
+    set(0, 'texRefZone',           { fg = '#f7f065', italic = true })
+    set(0, 'texArg',               { fg = '#f7f065'})
+    set(0, 'texOnlyMath',          { fg = '#A6E22E' })
+    set(0, 'texMathSymbol',        { fg = '#A6E22E' })
+    set(0, 'texMathZone',          { fg = '#A6E22E' })
+    set(0, 'texCmdGreek',          { fg = '#2ee249' } )
+    set(0, 'texDelim',             { fg = '#AE81FF' })
+    set(0, 'texCmd',               { fg = '#F92672' })
+    set(0, 'texStatement',         { fg = '#F92672' })
+    set(0, 'texSpecials',          { fg = '#F92672' })
+    set(0, 'texMathEnvArgName',    { fg = '#FD971F' })
+    set(0, 'texSection',           { fg = '#66D9EF', bold = true })
+    set(0, 'texCUNsectionArg',     { fg = '#66D9EF', bold = true, italic=true })
+    set(0, 'texCUNsubsectionArg',  { fg = '#66D9EF', bold = true, italic=true })
+    set(0, 'texError',             { fg = '#f92626', bold = true })
+
+end,
 })
 
     -- ╭────────────────────────────────────────────────────────────╮
-    -- │                      LuaSnip Snippets                      │
+    -- │                      luasnip snippets                      │
     -- ╰────────────────────────────────────────────────────────────╯
     local present, ls = pcall(require, "luasnip")
     if present then

@@ -64,6 +64,8 @@ map("n", "<leader>h", ":nohlsearch<CR>", { desc = "Clear search highlight" })
 map("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
 map("n", "<leader>r", ":so $MYVIMRC<CR>", { desc = "Reload config" })
 map("n", "<leader>n", ":enew<CR>", { desc = "New file" })
+map('n','<A-j>',':m .+1<CR>==', { silent = true })
+map('n','<A-k>',':m .-2<CR>==', { silent = true })
 
 wk.register({
   w = "Write file",
