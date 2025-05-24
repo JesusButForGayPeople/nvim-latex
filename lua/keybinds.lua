@@ -160,3 +160,8 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.keymap.set("n", "<C-s>", function()
+  vim.cmd("w")              -- save
+  vim.cmd("VimtexCompile")  -- compile LaTeX
+end, { desc = "Save and compile LaTeX", silent = true })
+

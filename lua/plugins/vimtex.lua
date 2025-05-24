@@ -14,10 +14,9 @@ return {
     vim.g.vimtex_complete_enabled = 1
     vim.g.vimtex_compiler_method = "latexmk"
     vim.g.vimtex_compiler_latexmk = {
-      out_dir = "build",
-      options = {
+       continuous = 1,
+	options = {
         "-shell-escape",
-        "-verbose",
         "-file-line-error",
         "-interaction=nonstopmode",
         "-synctex=1",
@@ -25,8 +24,8 @@ return {
     }
 
     -- Use SyncTeX with Zathura
-    vim.g.vimtex_view_forward_options = "--synctex-forward @line:@col:@tex --no-highlight"
-
+ vim.g.vimtex_view_forward_options =
+  "--synctex-forward @line:1:@tex --synctex-editor-command 'nvr --remote-silent +%{line} %{input}'"
     -- Folding
     vim.o.foldenable = false
     vim.o.foldmethod = "manual"
