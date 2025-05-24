@@ -26,7 +26,8 @@ set(0, "PmenuThumb", { bg = "#5C842C" })
 set(0, 'NormalFloat',     { fg = '#99cc58', bg = '#1C2C09' })
 set(0, 'FloatBorder',     { fg = '#5C842C', bg = '#1C2C09' })
 set(0, 'Directory',       { fg = '#5C842C' })
-
+set(0, "NoNeckPainWidthUp",   {  fg = "#22350a", bg = "#22350a" })
+set(0, "NoNeckPainWidthDown", {  fg = "#22350a", bg = "#22350a" })
 -- Search and Matching
 set(0, 'Search',          { fg = '#22350a', bg = '#f4bf75' })
 set(0, 'IncSearch',       { fg = '#22350a', bg = '#f4bf75' })

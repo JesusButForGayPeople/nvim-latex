@@ -62,6 +62,7 @@ vim.api.nvim_create_autocmd("FileType", {
     local set = vim.api.nvim_set_hl
     set(0, 'texComment',           { fg = '#365610' })
     set(0, 'texCmdMathEnv',        {fg = '#f7f065'})
+    set(0, 'texCmdEnv',            {fg = '#f7f065'})
     set(0, 'texBeginEnd',          { fg = '#f7f065'})
     set(0, 'texInputFile',         { fg = '#f7f065', italic = true })
     set(0, 'texSpecialChar',       { fg = '#f7f065' })

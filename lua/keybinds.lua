@@ -66,6 +66,9 @@ map("n", "<leader>r", ":so $MYVIMRC<CR>", { desc = "Reload config" })
 map("n", "<leader>n", ":enew<CR>", { desc = "New file" })
 map('n','<A-j>',':m .+1<CR>==', { silent = true })
 map('n','<A-k>',':m .-2<CR>==', { silent = true })
+map("n", "<Space>z", function()
+  require("no-neck-pain").toggle()
+end, { desc = "Toggle Centered Layout" })
 
 wk.register({
   w = "Write file",
